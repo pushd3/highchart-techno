@@ -1,0 +1,132 @@
+<!-- Toolbar -->
+<div class="toolbar" role="banner">
+  <span class="ma">Smart Steel Technologies</span>
+  <div class="spacer"></div>
+</div>
+
+<div class="content" role="main">
+  <!-- Resources -->
+  <h2>Assignment</h2>
+  <p>You can select class to see class wise chart</p>
+
+  <div class="card-container">
+    <a
+      class="card"
+      target="_blank"
+      rel="noopener"
+      (click)="getClassPlusChartData()"
+    >
+      <span>Class 1</span>
+    </a>
+
+    <a
+      class="card"
+      target="_blank"
+      rel="noopener"
+      (click)="getClassMinusChartData()"
+    >
+      <span>Class -1</span>
+    </a>
+  </div>
+
+  <!-- Next Steps -->
+  <h2>Sensors</h2>
+
+  <div class="card-container" *ngIf="isClassSelected">
+    <div *ngFor="let series of selectedChartData let i = index" >
+      <div
+        class="card card-small"
+        (click)="plotSeriesChart(series)"
+        tabindex="0"
+      >
+        <span>Sensor {{i}}</span>
+      </div>
+
+      <!-- <div
+        class="card card-small"
+        (click)="selection.value = 'material'"
+        tabindex="0"
+      >
+        <span>Sensor 1</span>
+      </div>
+
+      <div
+        class="card card-small"
+        (click)="selection.value = 'dependency'"
+        tabindex="0"
+      >
+        <span>Sensor 2</span>
+      </div>
+
+      <div
+        class="card card-small"
+        (click)="selection.value = 'test'"
+        tabindex="0"
+      >
+        <span>Sensor 3</span>
+      </div>
+
+      <div
+        class="card card-small"
+        (click)="selection.value = 'build'"
+        tabindex="0"
+      >
+        <span>Sensor 4</span>
+      </div>
+
+      <div
+        class="card card-small"
+        (click)="selection.value = 'build'"
+        tabindex="0"
+      >
+        <span>Sensor 5</span>
+      </div>
+
+      <div
+        class="card card-small"
+        (click)="selection.value = 'build'"
+        tabindex="0"
+      >
+        <span>Sensor 6</span>
+      </div>
+
+      <div
+        class="card card-small"
+        (click)="selection.value = 'build'"
+        tabindex="0"
+      >
+        <span>Sensor 7</span>
+      </div>
+
+      <div
+        class="card card-small"
+        (click)="selection.value = 'build'"
+        tabindex="0"
+      >
+        <span>Sensor 8</span>
+      </div>
+
+      <div
+        class="card card-small"
+        (click)="selection.value = 'build'"
+        tabindex="0"
+      >
+        <span>Sensor 9</span>
+      </div> -->
+    </div>
+  </div>
+
+  <div *ngIf="!isClassSelected">
+    <p>
+      <b>
+        Please select Class type to see sensors data under each class
+        category</b
+      >
+    </p>
+  </div>
+  <div class="chart">
+    <div id="PlotChart"></div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
